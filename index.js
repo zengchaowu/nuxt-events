@@ -7,6 +7,8 @@ export default async () => {
   const root = path.join(process.cwd(), "events");
   mkdirp.sync(root);
   const index = path.join(root, "index.js");
+  const ignore = path.join(root, ".gitignore");
+  fs.writeFileSync(ignore, "/index.js");
   const lib = path.join(root, "lib");
   mkdirp.sync(lib);
   const files = fs.readdirSync(lib);
