@@ -1,32 +1,25 @@
 import fs from "fs";
 import path from "path";
-import mkdirp from "mkdirp";
+import copy from "@doraemon-module/nuxt-functions/lib/copy";
+import mkdirp from "@doraemon-module/nuxt-functions/lib/mkdirp";
+import { dirname } from "path";
+import { fileURLToPath } from "url";
 import camelcase from "camelcase";
 
 export default async () => {
-  const root = path.join(process.cwd(), "events");
-  mkdirp.sync(root);
+  const __dirname = dirname(fileURLToPath(import.meta.url));
 
-  const ignore = path.join(root, ".gitignore");
-  fs.stat(ignore, function (err, stat) {
-    if (stat && stat.isFile()) {
-      console.log(`${ignore}存在`);
-    } else {
-      fs.writeFileSync(ignore, "/index.js");
-    }
-  });
+  const events = mkdirp(path.join(process.cwd(), "events"));
+  copy(
+    path.join(__dirname, "lib", ".gitignore"),
+    path.join(events, ".gitignore")
+  );
 
-  const lib = path.join(root, "lib");
-  mkdirp.sync(lib);
-
-  const application = path.join(lib, "application.js");
-  fs.stat(application, function (err, stat) {
-    if (stat && stat.isFile()) {
-      console.log(`${application}存在`);
-    } else {
-      fs.writeFileSync(application, "export default ['didFinishLaunching']");
-    }
-  });
+  const lib = mkdirp(path.join(events, "lib"));
+  copy(
+    path.join(__dirname, "lib", "application.js"),
+    path.join(lib, "application.js")
+  );
 
   const files = fs.readdirSync(lib);
   const out = {};
@@ -46,7 +39,7 @@ export default async () => {
   json = json.replaceAll('$"', "");
   json = json.replaceAll('"$', "");
 
-  const index = path.join(root, "index.js");
+  const index = path.join(events, "index.js");
   fs.writeFileSync(
     index,
     'import EventEmitter from "events"; export const emitter = new EventEmitter(); export default ' +

@@ -2,6 +2,13 @@
 # yarn lockfile v1
 
 
+"@doraemon-module/nuxt-functions@^1.0.1":
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/@doraemon-module/nuxt-functions/-/nuxt-functions-1.0.1.tgz#2ba710201ee9d6203ce1d6957003f00a6a6b9758"
+  integrity sha512-eIFTp2zv2d2vegn2VWEEe78pdIrlsv4CsGeSVW6t9esC2xOt0KIQv343/3/ZLMgBVpTpdfV1AgrZ4JtkUnsPiQ==
+  dependencies:
+    mkdirp "^1.0.4"
+
 camelcase@^7.0.0:
   version "7.0.0"
   resolved "https://registry.yarnpkg.com/camelcase/-/camelcase-7.0.0.tgz#fd112621b212126741f998d614cbc2a8623fd174"
