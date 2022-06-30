@@ -11,7 +11,7 @@ export default async () => {
 
   const events = mkdirp(path.join(process.cwd(), "events"));
   copy(
-    path.join(__dirname, "lib", ".gitignore"),
+    path.join(__dirname, "lib", "_gitignore"),
     path.join(events, ".gitignore")
   );
 
