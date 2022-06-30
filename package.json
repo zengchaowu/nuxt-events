@@ -1,6 +1,6 @@
 {
   "name": "@doraemon-module/nuxt-events",
-  "version": "2.1.1",
+  "version": "2.1.2",
   "main": "index.js",
   "license": "MIT",
   "type": "module",
