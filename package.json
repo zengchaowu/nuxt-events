@@ -3,6 +3,7 @@
   "version": "2.1.0",
   "main": "index.js",
   "license": "MIT",
+  "type": "module",
   "bin": {
     "init-events": "bin/setup.js"
   },
