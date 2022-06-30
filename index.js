@@ -2,6 +2,7 @@ import fs from "fs";
 import path from "path";
 import copy from "@doraemon-module/nuxt-functions/lib/copy";
 import mkdirp from "@doraemon-module/nuxt-functions/lib/mkdirp";
+import write from "@doraemon-module/nuxt-functions/lib/write";
 import { dirname } from "path";
 import { fileURLToPath } from "url";
 import camelcase from "camelcase";
@@ -45,4 +46,6 @@ export default async () => {
     'import EventEmitter from "events"; export const emitter = new EventEmitter(); export default ' +
       json
   );
+
+  write();
 };
