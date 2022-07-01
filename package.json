@@ -11,7 +11,7 @@
     "EventEmitter": "^1.0.0"
   },
   "dependencies": {
-    "@doraemon-module/nuxt-functions": "^1.0.4",
+    "@doraemon-module/nuxt-functions": "^1.0.5",
     "camelcase": "^7.0.0"
   }
 }
