@@ -4,9 +4,6 @@
   "main": "index.js",
   "license": "MIT",
   "type": "module",
-  "bin": {
-    "init-events": "bin/setup.js"
-  },
   "peerDependencies": {
     "EventEmitter": "^1.0.0"
   },
