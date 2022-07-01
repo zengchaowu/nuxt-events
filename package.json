@@ -7,6 +7,9 @@
   "bin": {
     "init-events": "bin/setup.js"
   },
+  "scripts": {
+    "postinstall": "yarn init-events"
+  },
   "peerDependencies": {
     "EventEmitter": "^1.0.0"
   },
