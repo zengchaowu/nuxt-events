@@ -21,14 +21,16 @@ export default async () => {
     out["$" + camelcase(path.parse(file).name, { pascalCase: true }) + "$"] =
       dic;
   }
-  let json = JSON.stringify(out);
-  json = json.replaceAll('$"', "");
-  json = json.replaceAll('"$', "");
+  try {
+    let json = JSON.stringify(out);
+    json = json.replaceAll('$"', "");
+    json = json.replaceAll('"$', "");
 
-  const index = path.join(events, "index.js");
-  fs.writeFileSync(
-    index,
-    'import EventEmitter from "events"; export const emitter = new EventEmitter(); export default ' +
-      json
-  );
+    const index = path.join(events, "index.js");
+    fs.writeFileSync(
+      index,
+      'import EventEmitter from "events"; export const emitter = new EventEmitter(); export default ' +
+        json
+    );
+  } catch (error) {}
 };
