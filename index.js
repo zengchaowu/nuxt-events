@@ -2,6 +2,7 @@ import fs from "fs";
 import path from "path";
 import mkdirp from "@doraemon-module/nuxt-functions/lib/mkdirp";
 import camelcase from "camelcase";
+import { exec } from "child_process";
 
 export default async () => {
   const events = mkdirp(path.join(process.cwd(), "events"));
@@ -32,5 +33,6 @@ export default async () => {
       'import EventEmitter from "events"; export const emitter = new EventEmitter(); export default ' +
         json
     );
+    exec("yarn lintfix");
   } catch (error) {}
 };
